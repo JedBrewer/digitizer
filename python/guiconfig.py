@@ -23,12 +23,14 @@ class GUIConfig(ConfigParser):
         grid_params.h_res = self.int('Grid', 'h_res')
         grid_params.v_res = self.int('Grid', 'v_res')
         grid_params.point_coverage = self.float('Grid', 'point_coverage')
+        grid_params.colors = [self.tuple('Grid', 'color_off', 3), self.tuple('Grid', 'color_on', 3)]
 
         circle_params = self.get_section('Circle')
 
         circle_params.line_thick = self.int('Circle', 'line_thick')
         circle_params.is_bounded = self.bool('Circle', 'is_bounded')
         circle_params.color = self.tuple('Circle', 'color', 3)
+        circle_params.start_radius_factor = self.float('Circle', 'start_radius_factor')
 
     def get_section(self, label):
         try:
